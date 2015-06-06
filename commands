@@ -1,0 +1,9 @@
+docker ps
+docker kill focused_thompson 
+docker build -t zero2continuousdeployment/ladybirdcount .
+docker run -p 8080:8080 c6f5c8b782d87f8f7914c54ddb67dcfa98a18940565c4383ea7c82605d2344e3
+docker build -t zero2continuousdeployment/ladybirdcount .
+docker push zero2continuousdeployment/ladybirdcount
+docker -H tcp://services.samirtalwar.com:2375 pull zero2continuousdeployment/ladybirdcount
+docker -H tcp://services.samirtalwar.com:2375 run -d -P zero2continuousdeployment/ladybirdcount
+
